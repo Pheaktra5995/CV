@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moeun Pheaktra – Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Noto+Sans+Khmer:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#fff;--surface:#fff;--ink:#111;--muted:#555;--line:#e4e7ea;--ghost:#e6e8ea;--accent:#0a80c0;--on-accent:#fff;
+  --head:'Oswald','Noto Sans Khmer','Arial Narrow',sans-serif;--body:'Source Sans 3','Noto Sans Khmer',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1217;--surface:#141b22;--ink:#f2f5f7;--muted:#a3afb9;--line:#232d36;--ghost:#1c252d;--accent:#36a9e8;--on-accent:#04121b}}
+:root[data-theme="dark"]{--bg:#0d1217;--surface:#141b22;--ink:#f2f5f7;--muted:#a3afb9;--line:#232d36;--ghost:#1c252d;--accent:#36a9e8;--on-accent:#04121b}
+html{scroll-behavior:smooth;scroll-padding-top:calc(88px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1280px;margin:0 auto;height:76px;padding:0 24px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.bar nav{display:flex;gap:28px;align-items:center}
+.bar nav.r{justify-content:flex-end}
+.bar a.l{font:600 15px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.bar a.l:hover{color:var(--accent)}
+.brand{font:700 26px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.lang{font:700 14px var(--head);letter-spacing:.1em;background:var(--accent);color:var(--on-accent);border:0;padding:8px 14px;cursor:pointer}
+.hero{position:relative;max-width:1280px;margin:0 auto;padding:36px 24px 64px;min-height:calc(100vh - 76px);display:flex;justify-content:center;align-items:flex-start;overflow:hidden}
+.ghost{position:absolute;left:50%;top:44%;transform:translateX(-50%);font:700 clamp(120px,22vw,300px)/1 var(--head);white-space:nowrap;color:transparent;-webkit-text-stroke:2px var(--ghost);text-transform:uppercase;pointer-events:none;user-select:none}
+.photo{position:relative;width:min(535px,70vw);aspect-ratio:535/790;background:#1a120c;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
+.card{position:absolute;left:24px;bottom:96px;width:300px;background:var(--surface);padding:28px 24px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+.card h1{margin:0;font:700 56px/.98 var(--head);letter-spacing:.04em;text-transform:uppercase}
+.card h1 span{display:block;color:var(--accent)}
+.card .rule{width:60px;height:4px;background:var(--accent);margin:14px 0 18px}
+.card p{margin:0 0 22px;color:var(--muted);font-size:16px;line-height:1.65}
+.cta{display:inline-block;background:var(--accent);color:var(--on-accent);font:600 15px var(--head);letter-spacing:.14em;text-transform:uppercase;padding:14px 24px;text-decoration:none}
+.cta:hover{filter:brightness(1.1)}
+main{max-width:860px;margin:0 auto;padding:40px 24px 40px}
+section{margin-bottom:72px}
+h2{font:700 38px/1.1 var(--head);letter-spacing:.06em;text-transform:uppercase;margin:0 0 28px}
+h2::after{content:"";display:block;width:60px;height:4px;background:var(--accent);margin-top:12px}
+.lead{font-size:21px;line-height:1.65;max-width:62ch;margin:0}
+.job{padding:0 0 28px 24px;margin-bottom:28px;border-left:4px solid var(--line)}
+.job:hover{border-color:var(--accent)}
+.job h3{margin:0;font:600 24px var(--head);letter-spacing:.04em;text-transform:uppercase}
+.org{color:var(--muted);margin:2px 0 6px}
+.when{display:inline-block;background:var(--accent);color:var(--on-accent);font:600 13px var(--head);letter-spacing:.1em;padding:2px 10px;margin-bottom:12px}
+.job ul{margin:0;padding-left:18px;max-width:66ch}.job li{margin-bottom:4px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skills span{border:2px solid var(--ink);padding:5px 14px;font:600 15px var(--head);letter-spacing:.08em;text-transform:uppercase}
+.edu{margin-bottom:18px}.edu h3{margin:0;font:600 21px var(--head);letter-spacing:.04em;text-transform:uppercase}.edu p{margin:0;color:var(--muted)}
+.langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.langs div{border:1px solid var(--line);background:var(--surface);padding:14px 16px;border-top:4px solid var(--accent)}
+.langs b{display:block;font:600 19px var(--head);letter-spacing:.06em;text-transform:uppercase}.langs small{color:var(--muted)}
+.contact{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:19px}
+.contact a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}
+footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var(--muted);font-size:14px}
+.k{font-family:'Noto Sans Khmer',var(--body)}
+.k *{letter-spacing:0!important;text-transform:none!important}
+.k .card h1{line-height:1.4}
+.k .ghost{line-height:1.5}
+.k .job li,.k .lead,.k .card p{line-height:1.9}
+@media (max-width:820px){
+  .bar{padding:0 16px;grid-template-columns:auto 1fr auto}
+  .bar nav.l1 a{display:none}
+  .brand{font-size:20px;text-align:center}
+  .bar nav.r a{display:none}
+  .hero{flex-direction:column;align-items:center;padding:24px 16px 48px;min-height:0}
+  .photo{width:min(420px,100%)}
+  .card{position:relative;left:auto;bottom:auto;width:min(420px,100%);margin-top:-72px}
+  .card h1{font-size:46px}
+  h2{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header,.hero .ghost,.cta,.lang{display:none}.hero{min-height:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <nav class="l1"><a class="l" href="#experience" data-i="experience">Experience</a><a class="l" href="#skills" data-i="skills">Skills</a></nav>
+    <a class="brand" href="#top" id="brand"></a>
+    <nav class="r"><a class="l" href="#contact" data-i="contact">Contact</a><button class="lang" type="button" id="lang" aria-label="Switch language">KH</button></nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="ghost" id="ghost" aria-hidden="true"></div>
+  <div class="photo">
+    <img src="IMG_0660.PNG" alt="">
+  </div>
+  <div class="card">
+    <h1 id="h1"></h1>
+    <div class="rule"></div>
+    <p id="tag"></p>
+    <a class="cta" href="#contact" data-i="touch">Get in touch</a>
+  </div>
+</div>
+
+<main>
+  <section id="about"><h2 data-i="about">About</h2><p class="lead" id="about-text"></p></section>
+  <section id="experience"><h2 data-i="experience">Experience</h2><div id="jobs"></div></section>
+  <section id="education"><h2 data-i="education">Education</h2><div id="edu"></div></section>
+  <section id="skills"><h2 data-i="skills">Skills</h2><div class="skills" id="skill-list"></div></section>
+  <section id="languages"><h2 data-i="languages">Languages</h2><div class="langs" id="langs"></div></section>
+  <section id="contact"><h2 data-i="contact">Contact</h2><ul class="contact" id="contact-list"></ul></section>
+</main>
+<footer id="foot"></footer>
+
+<script>
+// ---- Edit your details here (English = en, Khmer = kh) ----
+var cv = {
+  en: {
+    title: "Moeun Pheaktra – Web Developer",
+    first: "Moeun", last: "Pheaktra",
+    tagline: "web developer based in Phnom Penh, Cambodia.",
+    about: "Designer and developer with seven years of experience building clear, fast websites and apps for banks, NGOs and growing startups. I turn complicated processes into simple screens people finish using.",
+    contact: [
+      { label: "Phnom Penh, Cambodia" },
+      { label: "pheaktra5995@gmail.com" },
+      { label: "+855 96​ 335 3473" }
+    ],
+    experience: [
+      { title: "Senior Product Designer", org: "Mekong Digital, Phnom Penh", when: "2022 – Present", points: [
+        "Led the redesign of a mobile banking app used by 400,000 customers, raising task completion by 28%.",
+        "Built a shared design system that cut new-feature design time by a third.",
+        "Mentored four junior designers and ran weekly usability tests." ]},
+      { title: "Front-End Developer", org: "Angkor Labs, Siem Reap", when: "2019 – 2022", points: [
+        "Delivered 20+ responsive websites in HTML, CSS and JavaScript for tourism and retail clients.",
+        "Improved page load times by 45% through image and code optimisation." ]},
+      { title: "Junior Graphic Designer", org: "Studio Bayon, Phnom Penh", when: "2017 – 2019", points: [
+        "Produced branding, print and social media materials for 30+ local businesses." ]}
+    ],
+    education: [
+      { title: "Bachelor of Information Technology", detail: "Royal University of Phnom Penh · 2013 – 2017" },
+      { title: "Google UX Design Certificate", detail: "Coursera · 2020" }
+    ],
+    skills: ["UX research","Wireframing","Figma","Design systems","HTML & CSS","JavaScript","React","Accessibility","Project management"],
+    languages: [ { name: "Khmer", level: "Native" }, { name: "English", level: "Fluent" } ],
+    foot: "References available on request."
+  },
+  kh: {
+    title: "មឿន ភក្ត្រា – អ្នកអភិវឌ្ឍន៍គេហទំព័រ",
+    first: "មឿន", last: "ភ័កត្រា",
+    tagline: "អ្នកអភិវឌ្ឍន៍គេហទំព័រ មានមូលដ្ឋាននៅភ្នំពេញ ប្រទេសកម្ពុជា។",
+    about: "អ្នករចនា និងអ្នកអភិវឌ្ឍន៍ដែលមានបទពិសោធន៍ប្រាំពីរឆ្នាំក្នុងការបង្កើតគេហទំព័រ និងកម្មវិធីដែលច្បាស់លាស់ និងលឿន សម្រាប់ធនាគារ អង្គការមិនមែនរដ្ឋាភិបាល និងក្រុមហ៊ុនថ្មីដែលកំពុងលូតលាស់។ ខ្ញុំបំប្លែងដំណើរការស្មុគស្មាញឱ្យទៅជាអេក្រង់សាមញ្ញ ដែលមនុស្សប្រើរហូតដល់ចប់។",
+    contact: [
+      { label: "ភ្នំពេញ ប្រទេសកម្ពុជា" },
+      { label: "pheaktra5995@gmail.com" },
+      { label: "+855 963353473" }
+    ],
+    experience: [
+      { title: "អ្នករចនាផលិតផលជាន់ខ្ពស់", org: "Mekong Digital, ភ្នំពេញ", when: "២០២២ – បច្ចុប្បន្ន", points: [
+        "ដឹកនាំការរចនាឡើងវិញនូវកម្មវិធីធនាគារលើទូរស័ព្ទដែលមានអតិថិជនប្រើប្រាស់ ៤០០,០០០ នាក់ ដែលបង្កើនអត្រាបំពេញកិច្ចការបាន ២៨%។",
+        "បង្កើតប្រព័ន្ធរចនាចែករំលែកមួយ ដែលកាត់បន្ថយពេលវេលារចនាមុខងារថ្មីបានមួយភាគបី។",
+        "ណែនាំអ្នករចនាកម្រិតចាប់ផ្តើមបួននាក់ និងរៀបចំការធ្វើតេស្តភាពងាយស្រួលប្រើប្រចាំសប្តាហ៍។" ]},
+      { title: "អ្នកអភិវឌ្ឍន៍ផ្នែកខាងមុខ", org: "Angkor Labs, សៀមរាប", when: "២០១៩ – ២០២២", points: [
+        "បានបង្កើតគេហទំព័រដែលសមស្របនឹងគ្រប់អេក្រង់ជាង ២០ ដោយប្រើ HTML, CSS និង JavaScript សម្រាប់អតិថិជនក្នុងវិស័យទេសចរណ៍ និងលក់រាយ។",
+        "បានកែលម្អល្បឿនផ្ទុកទំព័រ ៤៥% តាមរយៈការបង្កើនប្រសិទ្ធភាពរូបភាព និងកូដ។" ]},
+      { title: "អ្នករចនាក្រាហ្វិកកម្រិតចាប់ផ្តើម", org: "Studio Bayon, ភ្នំពេញ", when: "២០១៧ – ២០១៩", points: [
+        "បានផលិតសម្ភារៈម៉ាកសញ្ញា ការបោះពុម្ព និងបណ្តាញសង្គម សម្រាប់អាជីវកម្មក្នុងស្រុកជាង ៣០។" ]}
+    ],
+    education: [
+      { title: "បរិញ្ញាបត្រព័ត៌មានវិទ្យា", detail: "សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ · ២០១៣ – ២០១៧" },
+      { title: "វិញ្ញាបនបត្រការរចនា UX របស់ Google", detail: "Coursera · ២០២០" }
+    ],
+    skills: ["ការស្រាវជ្រាវ UX","ការគូររបៀបតម្រូវ (Wireframing)","Figma","ប្រព័ន្ធរចនា","HTML & CSS","JavaScript","React","ភាពងាយស្រួលចូលប្រើ","ការគ្រប់គ្រងគម្រោង"],
+    languages: [ { name: "ខ្មែរ", level: "ភាសាកំណើត" }, { name: "អង់គ្លេស", level: "ស្ទាត់ជំនាញ" } ],
+    foot: "សេចក្តីយោងអាចផ្តល់ជូនតាមការស្នើសុំ។"
+  }
+};
+// --------------------------------
+
+var T = {
+  en: { experience:"Experience", skills:"Skills", contact:"Contact", touch:"Get in touch", about:"About", education:"Education", languages:"Languages", btn:"KH" },
+  kh: { experience:"បទពិសោធន៍", skills:"ជំនាញ", contact:"ទំនាក់ទំនង", touch:"ទាក់ទងមក", about:"អំពី", education:"ការអប់រំ", languages:"ភាសា", btn:"EN" }
+};
+
+function el(tag, text, cls) { var n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; }
+function $(id) { return document.getElementById(id); }
+function clear(id) { var n = $(id); while (n.firstChild) n.removeChild(n.firstChild); return n; }
+
+function build(l) {
+  var d0 = cv[l];
+  var full = d0.first + " " + d0.last;
+  document.title = d0.title;
+  $("brand").textContent = full;
+  $("ghost").textContent = full;
+  var h1 = clear("h1"); h1.appendChild(document.createTextNode(d0.first)); h1.appendChild(el("span", d0.last));
+  $("tag").textContent = d0.tagline;
+  $("about-text").textContent = d0.about;
+
+  var jobs = clear("jobs");
+  d0.experience.forEach(function (j) {
+    var d = el("div", null, "job");
+    d.appendChild(el("h3", j.title)); d.appendChild(el("p", j.org, "org")); d.appendChild(el("span", j.when, "when"));
+    var ul = el("ul"); j.points.forEach(function (p) { ul.appendChild(el("li", p)); }); d.appendChild(ul);
+    jobs.appendChild(d);
+  });
+  var edu = clear("edu");
+  d0.education.forEach(function (e) {
+    var d = el("div", null, "edu"); d.appendChild(el("h3", e.title)); d.appendChild(el("p", e.detail)); edu.appendChild(d);
+  });
+  var sk = clear("skill-list");
+  d0.skills.forEach(function (s) { sk.appendChild(el("span", s)); });
+  var lg = clear("langs");
+  d0.languages.forEach(function (x) {
+    var d = el("div"); d.appendChild(el("b", x.name)); d.appendChild(el("small", x.level)); lg.appendChild(d);
+  });
+  var cl = clear("contact-list");
+  d0.contact.forEach(function (c) {
+    var li = el("li");
+    if (c.href) { var a = el("a", c.label); a.href = c.href; li.appendChild(a); } else li.textContent = c.label;
+    cl.appendChild(li);
+  });
+  $("foot").textContent = d0.foot + " © " + new Date().getFullYear() + " " + full;
+}
+
+var lang = "en";
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l === "kh" ? "km" : "en";
+  build(l);
+  document.querySelectorAll("[data-i]").forEach(function (n) { n.textContent = T[l][n.getAttribute("data-i")]; });
+  $("lang").textContent = T[l].btn;
+  document.body.classList.toggle("k", l === "kh");
+}
+
+setLang("en");
+$("lang").addEventListener("click", function () { setLang(lang === "en" ? "kh" : "en"); });
+</script>
+</body>
+</html>
